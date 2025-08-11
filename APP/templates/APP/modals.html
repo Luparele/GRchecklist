@@ -1,0 +1,90 @@
+<div class="modal fade" id="modal-veiculo" tabindex="-1" aria-labelledby="modal-veiculo-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-veiculo-label">Cadastrar Novo Veículo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="form-veiculo" method="post" enctype="multipart/form-data" action="{% url 'cadastrar_veiculo' %}">
+                    {% csrf_token %}
+                    {{ veiculo_form.as_p }}
+                    <button type="submit" class="btn btn-primary mt-3">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-gr" tabindex="-1" aria-labelledby="modal-gr-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-gr-label">Cadastrar Nova Gerenciadora de Risco</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="form-gr" method="post" action="{% url 'cadastrar_gr' %}">
+                    {% csrf_token %}
+                    {{ gr_form.as_p }}
+                    <button type="submit" class="btn btn-success mt-3">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-checklist" tabindex="-1" aria-labelledby="modal-checklist-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-checklist-label">Cadastrar Novo Checklist</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="form-checklist" method="post" action="{% url 'cadastrar_checklist' %}">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="id_veiculo" class="form-label">Veículo:</label>
+                        {{ checklist_form.veiculo }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_gerenciadora" class="form-label">Gerenciadora:</label>
+                        {{ checklist_form.gerenciadora }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_aprovado" class="form-label">Aprovado:</label>
+                        {{ checklist_form.aprovado }}
+                    </div>
+                    <div id="causa-reprovacao-field" style="display:none;" class="mb-3">
+                        <label for="id_causa_reprovacao" class="form-label">Causa da Reprovação:</label>
+                        {{ checklist_form.causa_reprovacao }}
+                    </div>
+                    <div id="data-emissao-field" class="mb-3">
+                        <label for="id_data_emissao" class="form-label">Data de Emissão:</label>
+                        {{ checklist_form.data_emissao }}
+                    </div>
+                    <button type="submit" class="btn btn-warning w-100 mt-3">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-login" tabindex="-1" aria-labelledby="modal-login-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-login-label">Entrar no Sistema</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="login-form" method="post" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    {{ login_form.as_p }}
+                    <button type="submit" class="btn btn-primary w-100 mt-3">Entrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

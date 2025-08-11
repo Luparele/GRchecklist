@@ -1,0 +1,75 @@
+/* Estilos de Cores para as Células (Paleta Pastel) */
+.table .vencido, .table .reprovado {
+    background-color: #ffcccc; /* Pastel de vermelho */
+    color: #8c0000;
+    font-weight: bold;
+    position: relative; /* Necessário para o tooltip */
+}
+
+.table .a-vencer {
+    background-color: #ffcccc; /* Pastel de vermelho para 0-10 dias */
+    color: #8c0000;
+    font-weight: bold;
+}
+
+.table .amarelo { /* Classe para a regra de 11 a 20 dias */
+    background-color: #ffe6b3; /* Pastel de amarelo */
+    color: #996600;
+    font-weight: bold;
+}
+
+.table .ok {
+    background-color: #ccffcc; /* Pastel de verde */
+    color: #006600;
+    font-weight: bold;
+}
+
+/* Estilo para o Tooltip de Reprovação */
+.table .reprovado::before {
+    content: attr(data-tooltip);
+    visibility: hidden;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 10px;
+    position: absolute;
+    z-index: 100;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.table .reprovado::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+    visibility: hidden;
+}
+
+.table .reprovado:hover::before,
+.table .reprovado:hover::after {
+    visibility: visible;
+}
+
+/* Força a tabela a ter colunas de tamanho uniforme */
+.table {
+    table-layout: fixed;
+}
+
+.table thead {
+    background-color: #007bff; /* Cor primária do Bootstrap */
+    color: white;
+}
+
+.table thead th {
+    background-color: #007bff !important; /* Força a cor de fundo nos th's */
+    color: white; /* Garante que o texto seja branco em todos os cabeçalhos */
+}
